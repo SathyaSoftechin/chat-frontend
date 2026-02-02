@@ -28,14 +28,13 @@ export default function Login() {
 
     try {
       const res = await axios.post(
-        "http://192.168.1.25:5000/api/auth/login",
+  `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`,
+  {
+    username: data.email,
+    password: data.password
+  }
+);
 
-        {
-          username: data.email, // backend expects `username`
-
-          password: data.password,
-        },
-      );
 
       const { token, passwordChanged } = res.data;
 
@@ -53,11 +52,12 @@ export default function Login() {
 
       // Route based on password status
 
-      if (!passwordChanged) {
-        navigate("/change-password");
-      } else {
-        navigate("/chats");
-      }
+      // if (!passwordChanged) {
+        // navigate("./ResetPassword.tsx");
+      // } else {
+        // navigate("/chats");
+      // }
+      navigate("/chats");
     } catch (error: any) {
       alert(error?.response?.data?.message || "Authentication failed");
     } finally {
