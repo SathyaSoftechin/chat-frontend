@@ -6,11 +6,9 @@ export default function Sidebar() {
       <NavLink to="/chats" className="block p-2 rounded hover:bg-gray-700">
         Chats
       </NavLink>
+
       <NavLink to="/meets" className="block p-2 rounded hover:bg-gray-700">
         Meets
-      </NavLink>
-      <NavLink to="/admin" className="block p-2 rounded hover:bg-gray-700">
-        Admin
       </NavLink>
     </aside>
   );
